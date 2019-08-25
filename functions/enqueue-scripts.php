@@ -12,6 +12,9 @@ function site_scripts() {
 
 	// Register main stylesheet
 	wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/app.css', array(), PORTALCZN_VERSION, 'all' );
+
+	// Register fonts
+	wp_enqueue_style( 'site-fonts-css', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Roboto:400,700,900&display=swap', array(), PORTALCZN_VERSION, 'all' );
 }
 
 add_action( 'wp_enqueue_scripts', 'site_scripts', 999 );
