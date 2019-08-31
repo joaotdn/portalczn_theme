@@ -14,6 +14,10 @@
         .current_page_item a {
             color: #d41f1c !important;
         }
+
+        .first-uppercase:first-letter {
+            text-transform: uppercase;
+        }
     </style>
 </head>
 <body <?php body_class(); ?>>
@@ -40,7 +44,7 @@ get_template_part( 'parts/nav', 'topbar' );
             </div>
 
             <div class="cell small-12 medium-8 auto margin-0 text-center large-text-right medium-text-right"
-                    role="banner">
+                 role="banner">
                 <div class="display-inline-block">
 					<?php
 					portalczn_show_banner( 'portalczn_banners_topo' );
@@ -48,20 +52,21 @@ get_template_part( 'parts/nav', 'topbar' );
                 </div>
             </div>
 
-            <div class="cell shrink show-for-large">
-                <div class="weather-component width-100 align-middle">
+            <div class="cell shrink show-for-large weather-component hide">
+                <div class="width-100 align-middle">
                     <div class="grid-container full">
                         <div class="grid-x text-center">
                             <div class="cell small-12 padding-top-1">
                                 <div class="media-object">
                                     <div class="media-object-section">
-                                        <span class="display-inline-block width-100 text-uppercase icon"><i
-                                                    class="fas fa-sun"></i></span>
+                                        <span class="display-inline-block width-100 text-uppercase icon">
+                                            <i class="fas fa-sun"></i>
+                                        </span>
                                     </div>
                                     <div class="media-object-section main-section">
                                         <span class="display-block font-header text-uppercase"><strong>Cajazeiras</strong></span>
-                                        <span class="min">30 <i class="fas fa-temperature-low"></i></span>
-                                        <span class="max">38 <i class="fas fa-temperature-high"></i></span>
+                                        <span class="min"> <i class="fas fa-temperature-low"></i></span>
+                                        <span class="max"> <i class="fas fa-temperature-high"></i></span>
                                     </div>
                                 </div>
                             </div>
