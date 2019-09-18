@@ -14,3 +14,6 @@ require_once( get_template_directory() . '/functions/acf-config.php' );
 
 // Config Banners
 require_once( get_template_directory() . '/functions/banners-config.php' );
+//
+//// Config Banners
+//require_once( get_template_directory() . '/functions/smush-config.php' );

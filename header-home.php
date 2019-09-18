@@ -4,9 +4,10 @@
     <meta charset="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal CZN - Capa</title>
+    <meta class="foundation-mq">
     <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
     <link href="<?php echo get_template_directory_uri(); ?>/assets/img/logofooter.png" rel="apple-touch-icon"/>
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
     <style>
@@ -33,7 +34,8 @@ get_template_part( 'parts/nav', 'topbar' );
             <figure class="cell auto margin-0 site-brand margin-bottom-small-1" role="figure">
                 <a href="#" title="Página principal" class="display-inline-block">
                     <img src="<?php the_field( 'portalczn_logo', 'option' ); ?>"
-                         alt="<?php _e( 'Logo da CZN', 'portalczn' ); ?>">
+                         alt="<?php _e( 'Logo da CZN', 'portalczn' ); ?>"
+                         class="no-lazy">
                 </a>
             </figure>
 
@@ -52,37 +54,22 @@ get_template_part( 'parts/nav', 'topbar' );
                 </div>
             </div>
 
-            <div class="cell shrink show-for-large weather-component hide">
-                <div class="width-100 align-middle">
-                    <div class="grid-container full">
-                        <div class="grid-x text-center">
-                            <div class="cell small-12 padding-top-1">
-                                <div class="media-object">
-                                    <div class="media-object-section">
-                                        <span class="display-inline-block width-100 text-uppercase icon">
-                                            <i class="fas fa-sun"></i>
-                                        </span>
-                                    </div>
-                                    <div class="media-object-section main-section">
-                                        <span class="display-block font-header text-uppercase"><strong>Cajazeiras</strong></span>
-                                        <span class="min"> <i class="fas fa-temperature-low"></i></span>
-                                        <span class="max"> <i class="fas fa-temperature-high"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<?php get_template_part( 'parts/component', 'weather' ); ?>
         </div>
     </div>
 </header>
-<?php get_template_part( 'parts/nav', 'header' ); ?>
+<?php
+get_template_part( 'parts/nav', 'header' );
+
+$the_query = new WP_Query( array(
+	'posts_per_page' => 6,
+) );
+?>
 <section id="header-features" class="container">
     <div class="grid-container">
         <div class="grid-x grid-padding-x">
             <div class="cell auto ellipsis">
-                <span class="text-uppercase font-bold display-inline-block margin-right-1"><i class="far fa-clock"></i> Destaques:</span>
+                <span class="text-uppercase font-bold display-inline-block margin-right-1"><i class="far fa-clock"></i> Últimas:</span>
                 <div class="cycle-slideshow display-inline-block"
                      data-cycle-fx="fade"
                      data-cycle-timeout="5000"
@@ -90,10 +77,11 @@ get_template_part( 'parts/nav', 'topbar' );
                      data-cycle-prev=".prev"
                      data-cycle-next=".next"
                 >
-                    <span><a href="#" title="" rel="contents">Nova versão de relatório deixa estados e municípios fora da Previdência</a></span>
-                    <span><a href="#" title="" rel="contents">Segundo o relator, deputado Samuel Moreira, discussão sobre inclusão de estados e municípios pode ficar para plenário </a></span>
-                    <span><a href="#" title="" rel="contents">Copa América: Seleção brasileira vence Argentina e chega à final após 12 anos</a></span>
-                    <span><a href="#" title="" rel="contents">Ex-juiz nega perseguição a jornalista após vazamento de mensagens da Lava Jato</a></span>
+					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+                        <span><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"
+                                 rel="contents"><?php the_title(); ?></a></span>
+					<?php endwhile; ?>
+					<?php wp_reset_postdata(); ?>
                 </div>
             </div>
 

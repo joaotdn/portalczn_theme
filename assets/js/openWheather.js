@@ -12,6 +12,7 @@
             let description = data.weather[0].main;
             let min = Math.floor(data.main.temp_min);
             let max = Math.floor(data.main.temp_min);
+
             switch (description) {
                 case 'Clear':
                     icon = '<i class="fas fa-cloud-sun"></i>';

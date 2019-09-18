@@ -25,14 +25,14 @@ function plandd_acf_dir( $dir ) {
 if ( function_exists( 'acf_add_options_page' ) ) {
 	acf_add_options_page( array(
 		'page_title' => 'Opções gerais',
-		'menu_title' => 'Opções',
+		'menu_title' => 'Portal CZN',
 		'menu_slug'  => 'opcoes-gerais',
 		'capability' => 'edit_posts',
 		'redirect'   => false
 	) );
 	acf_add_options_sub_page( array(
 		'page_title'  => 'Registo de banners',
-		'menu_title'  => 'Publidades',
+		'menu_title'  => 'Publicidades',
 		'parent_slug' => 'opcoes-gerais',
 	) );
 }
