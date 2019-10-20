@@ -9,11 +9,11 @@
         let icon;
 
         if (data.main) {
-            let description = data.weather[0].main;
+            let desc = data.weather[0].main;
             let min = Math.floor(data.main.temp_min);
             let max = Math.floor(data.main.temp_min);
 
-            switch (description) {
+            switch (desc) {
                 case 'Clear':
                     icon = '<i class="fas fa-cloud-sun"></i>';
                     break;

@@ -9,6 +9,9 @@ function portalczn_theme_support() {
 	// Default thumbnail size
 	set_post_thumbnail_size(125, 125, true);
 
+	// Custom sizes
+	add_image_size( 'feature-medium', 236.66, 130.38, true );
+
 	// Add RSS Support
 	add_theme_support( 'automatic-feed-links' );
 
@@ -45,3 +48,12 @@ function portalczn_theme_support() {
 } /* end theme support */
 
 add_action( 'after_setup_theme', 'portalczn_theme_support' );
+
+function getThumbUrl($size) {
+	global $post;
+	if(!$size || $size == null) {
+		$size = 'full';
+	}
+	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size );
+	echo $thumb[0];
+}

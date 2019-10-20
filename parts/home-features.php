@@ -2,54 +2,14 @@
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12 medium-7 large-8">
-				<article class="width-100 headline-1" role="article">
-					<h3 class="headline-kicker display-inline-block width-100">
-						<span class="display-inline-block">Previdência</span>
-
-						<span class="display-inline-block open-share">
-                            <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                        </span>
-					</h3>
-					<h1 class="headline-url"><a href="#" title="">Nova versão de relatório deixa estados e municípios
-							fora da Previdência</a></h1>
-					<p class="headline-excerpt">Segundo o relator, deputado Samuel Moreira, discussão sobre inclusão de
-						estados e municípios pode ficar para plenário </p>
-				</article>
+                <?php get_template_part('parts/features', 'big_title'); ?>
 
 				<div class="grid-container full margin-top-1">
 					<div class="grid-x grid-margin-x">
-						<div class="cell small-12 medium-4 headline-small">
-							<a href="#" title="" class="display-block width-100 margin-bottom-1">
-								<img src="assets/img/temp/news2.jpg" alt="">
-							</a>
-							<h3 class="headline-kicker display-inline-block width-100">
-								<span class="display-inline-block">Mercosul</span>
 
-								<span class="display-inline-block open-share">
-                                    <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                                </span>
-							</h3>
-							<h1 class="headline-url"><a href="#" title="">'Acordo pode não avançar devido à radical
-									mudança do governo Bolsonaro na área ambiental'</a></h1>
-						</div>
+                        <?php get_template_part('parts/features', 'medium_title'); ?>
 
-						<div class="cell small-12 medium-4 headline-small">
-							<a href="#" title="" class="display-block width-100 margin-bottom-1">
-								<img src="assets/img/temp/news3.jpg" alt="">
-							</a>
-							<h3 class="headline-kicker display-inline-block width-100">
-								<span class="display-inline-block">Na Câmara</span>
-
-								<span class="display-inline-block open-share">
-                                    <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                                </span>
-							</h3>
-							<h1 class="headline-url"><a href="#" title="">Grande acordo comercial que o Brasil tem que
-									fazer é com ele mesmo, diz secretário
-								</a></h1>
-						</div>
-
-						<div class="cell small-12 medium-4 headline-small text-center">
+                        <div class="cell small-12 medium-4 headline-small text-center">
 							<img src="assets/img/temp/pub1.gif" alt="" data-ads>
 						</div>
 					</div>

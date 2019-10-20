@@ -10,7 +10,11 @@
 				     data-cycle-prev=".prev"
 				     data-cycle-next=".next"
 				>
-					<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+					<?php
+					$the_query = new WP_Query( array(
+						'posts_per_page' => 6,
+					) );
+                    while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 						<span><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"
 						         rel="contents"><?php the_title(); ?></a></span>
 					<?php endwhile; ?>

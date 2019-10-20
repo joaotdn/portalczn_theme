@@ -20,7 +20,7 @@ $contact_page = get_page_by_title( 'Fale conosco' );
                 <span class="display-inline-block margin-right-1">
                     <?php
                     if ( $fone ) {
-	                    echo '<a href="tel:' . $fone . '" target="_blank" class="white"><i class="fas fa-phone-alt"></i>' . $fone . '</a>';
+	                    echo '<a href="tel:' . $fone . '" target="_blank" class="white" title="Ligue para o Portal CZN"><i class="fas fa-phone-alt"></i> ' . $fone . '</a>';
                     }
                     ?>
                 </span>
