@@ -27,13 +27,13 @@ get_template_part( 'parts/nav', 'topbar' );
 <header id="header" class="container padding-top-1 padding-bottom-1" role="banner">
     <div class="grid-container">
         <div class="grid-x grid-padding-x align-middle">
-            <figure class="cell auto margin-0 site-brand margin-bottom-small-1" role="figure">
+            <div class="cell auto margin-0 site-brand margin-bottom-small-1" role="figure">
                 <a href="#" title="Página principal" class="display-inline-block">
                     <img src="<?php the_field( 'portalczn_logo', 'option' ); ?>"
                          alt="<?php _e( 'Logo da CZN', 'portalczn' ); ?>"
-                         class="no-lazy">
+                         class="no-lazy" data-src>
                 </a>
-            </figure>
+            </div>
 
             <div class="cell shrink margin-bottom-small-1 text-right hide-for-large">
                 <span class="margin-right-1 display-inline-block">
