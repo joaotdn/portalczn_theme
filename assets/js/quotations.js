@@ -6,15 +6,26 @@
         if (block.length) {
             $.get(url, function (data) {
                 if (data) {
-                    const {results : {currencies}} = data;
-                    let variation;
+                    const {results: {currencies}} = data;
+                    let name, prop;
 
-                    for (let prop in currencies) {
+                    for (prop in currencies) {
                         if (currencies.hasOwnProperty(prop) && currencies[prop].name !== undefined) {
-                            // currencies[prop].variation > 0
-                            //     ? variation = `<strong class="green"><i class="fas fa-long-arrow-alt-up"></i> ${currencies[prop].variation}%</strong>`
-                            //     : variation = `<strong class="red"><i class="fas fa-long-arrow-alt-down"></i> ${currencies[prop].variation}%</strong>`;
-                            $('ul', block).append(`<li><strong class="text-uppercase">${currencies[prop].name}</strong><span> R$ ${currencies[prop].buy}</span></li>`);
+                            switch (currencies[prop].name) {
+                                case 'Dollar':
+                                    name = 'Dólar comercial';
+                                    break;
+                                case 'Argentine Peso':
+                                    name = 'Peso Argentino';
+                                    break;
+                                case 'Pound Sterling':
+                                    name = 'Libra';
+                                    break;
+                                default:
+                                    name = currencies[prop].name
+                            }
+
+                            $('ul', block).append(`<li><strong class="text-uppercase">${name}</strong><span> R$ ${currencies[prop].buy.toFixed(2)}</span></li>`);
                         }
                     }
                 } else {

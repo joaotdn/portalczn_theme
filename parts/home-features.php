@@ -17,7 +17,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="cell small-12 medium-5 large-4 position-relative margin-bottom-1" id="features-slideshow"
+			<div class="cell small-12 medium-5 large-4 position-relative margin-bottom-1 hide" id="features-slideshow"
 			     role="slider">
 				<?php get_template_part('parts/features', 'slider'); ?>
 			</div>

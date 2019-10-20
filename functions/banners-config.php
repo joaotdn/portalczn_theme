@@ -8,9 +8,9 @@ function portalczn_show_banner( $name = '' ) {
 		shuffle( $banners );
 
 		! empty( $banners[0][ $name . '_imagem_link' ] )
-			? printf( '<a href="%s"><img src="%s" alt="%s" class="no-lazy"></a>',
+			? printf( '<a href="%s"><img data-src src="%s" alt="%s" class="no-lazy"></a>',
 			$banners[0][ $name . '_imagem_link' ], $banners[0][ $name . '_imagem' ], 'Publicidade' )
-			: printf( '<img src="%s" alt="%s">',
+			: printf( '<img data-src src="%s" alt="%s" class="no-lazy">',
 			$banners[0][ $name . '_imagem' ], 'Publicidade' );
 
 	} else {

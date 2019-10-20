@@ -71,5 +71,13 @@
 	</div>
 </footer>
 <?php wp_footer(); ?>
+<script>
+    (function ($) {
+        // TODO retirar daqui
+        $( '.cycle-slideshow' ).on( 'cycle-post-initialize', function() {
+            $('#features-slideshow').removeClass('hide');
+        });
+    })(jQuery);
+</script>
 </body>
 </html>

@@ -79,7 +79,6 @@ $cat_link = get_category_link( get_cat_ID( $obj_cat->term_id ) );
 								?>
                                 <figure class="with-100 headline-small">
 									<?php
-                                    // 73d8886b
 									if ( $i == 0 ) {
 										echo '<a href="' . get_the_permalink( $post->ID ) . '" title="' . get_the_title( $post->ID ) . '">';
 										echo get_the_post_thumbnail( $post->ID, 'feature-medium' );
@@ -110,7 +109,9 @@ $cat_link = get_category_link( get_cat_ID( $obj_cat->term_id ) );
                     <header class="width-100 text-center text-uppercase font-header">
                         <span>Publicidade</span>
                     </header>
-                    <img src="assets/img/temp/pub2.gif" alt="">
+	                <?php
+	                portalczn_show_banner( 'portalczn_banners_cat_featured' );
+	                ?>
                 </div>
             </aside>
         </div>
