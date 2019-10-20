@@ -34,7 +34,8 @@
 	                </span>
                 </h3>
                 <h2 class="margin-bottom-1">
-                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+                    <a href="<?php the_permalink(); ?>"
+                       title="<?php the_title(); ?>"><?php echo substr( get_the_title( $post->ID ), 0, 90); ?></a>
                 </h2>
             </figcaption>
         </figure>

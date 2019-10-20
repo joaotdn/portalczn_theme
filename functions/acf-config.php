@@ -35,4 +35,9 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 		'menu_title'  => 'Publicidades',
 		'parent_slug' => 'opcoes-gerais',
 	) );
+	acf_add_options_sub_page( array(
+		'page_title'  => 'Página principal',
+		'menu_title'  => 'Página principal',
+		'parent_slug' => 'opcoes-gerais',
+	) );
 }
