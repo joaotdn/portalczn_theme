@@ -48,6 +48,9 @@ function portalczn_theme_support() {
 	// Set the maximum allowed width for any content in the theme, like oEmbeds and images added to posts.
 	$GLOBALS['content_width'] = apply_filters( 'portalczn_theme_support', 1200 );
 
+	// Hide admin bar
+	show_admin_bar(false);
+
 } /* end theme support */
 
 add_action( 'after_setup_theme', 'portalczn_theme_support' );

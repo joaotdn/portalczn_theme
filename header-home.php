@@ -17,6 +17,9 @@
         .current_page_item a {
             color: #d41f1c !important;
         }
+        .close-button {
+            color: white;
+        }
     </style>
 </head>
 <body <?php body_class(); ?>>
