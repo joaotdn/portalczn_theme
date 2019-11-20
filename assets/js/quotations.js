@@ -4,7 +4,7 @@
         const block = $('.stack-component').eq(0);
 
         if (block.length) {
-            $.get(url, function (data) {
+                $.get(url, function (data) {
                 if (data) {
                     const {results: {currencies}} = data;
                     let name, prop;
