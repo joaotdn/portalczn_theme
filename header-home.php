@@ -10,7 +10,9 @@
     <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
+
     <style>
+        /* TODO Colocar no repositorio front */
         .current-menu-item a,
         .current_page_item a {
             color: #d41f1c !important;
@@ -21,7 +23,9 @@
 
 <?php
 get_template_part( 'parts/nav', 'scroll' );
+
 get_template_part( 'parts/nav', 'offcanvas' );
+
 get_template_part( 'parts/nav', 'topbar' );
 ?>
 <header id="header" class="container padding-top-1 padding-bottom-1" role="banner">

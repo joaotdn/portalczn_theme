@@ -20,3 +20,9 @@ require_once( get_template_directory() . '/functions/banners-config.php' );
 
 // Get first Tag
 require_once( get_template_directory() . '/functions/first-tag.php' );
+
+// Get video thumb on Youtube
+require_once( get_template_directory() . '/functions/get-video-thumb.php' );
+
+// Get video ID on Youtube
+require_once( get_template_directory() . '/functions/get-video-id.php' );

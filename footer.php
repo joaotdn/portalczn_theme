@@ -1,7 +1,7 @@
 <div class="large reveal padding-0" id="videoModal" data-reset-on-close="true" data-animation-in="fade-in"
      data-animation-out="fade-out" data-reveal>
 	<div class="responsive-embed large">
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/teMafmEoP4c" frameborder="0"
+		<iframe width="560" height="315" frameborder="0"
 		        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 		        allowfullscreen></iframe>
 	</div>
@@ -73,7 +73,7 @@
 <?php wp_footer(); ?>
 <script>
     (function ($) {
-        // TODO retirar daqui
+        // TODO retirar daqui, colocar no repo do front
         $( '.cycle-slideshow' ).on( 'cycle-post-initialize', function() {
             $('#features-slideshow').removeClass('hide');
         });

@@ -3,13 +3,15 @@ function site_scripts() {
 	define( PORTALCZN_VERSION, '1.0.2' );
 
 	// JS
-	wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/5ef691494b.js', array(), PORTALCZN_VERSION, true );
+	wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/5ef691494b.js', array(), PORTALCZN_VERSION, false );
 
 	wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/app.js', array(), PORTALCZN_VERSION, true );
 
 	wp_enqueue_script( 'site-js-wheather', get_template_directory_uri() . '/assets/js/openWheather.js', array('site-js'), PORTALCZN_VERSION, true );
 
 	wp_enqueue_script( 'site-js-quotations', get_template_directory_uri() . '/assets/js/quotations.js', array('site-js'), PORTALCZN_VERSION, true );
+
+	wp_enqueue_script( 'site-js-video-modal', get_template_directory_uri() . '/assets/js/showVideoOnModal.js', array('site-js'), PORTALCZN_VERSION, true );
 
 	// CSS
 	wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/app.css', array(), PORTALCZN_VERSION, 'all' );
