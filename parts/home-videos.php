@@ -104,7 +104,9 @@ $videos_link = get_category_link( $videos_cat );
                     <header class="width-100 text-center text-uppercase font-header">
                         <span>Publicidade</span>
                     </header>
-                    <img src="assets/img/temp/pub3.gif" alt="">
+	                <?php
+	                portalczn_show_banner( 'portalczn_banners_radios' );
+	                ?>
                 </div>
             </aside>
         </div>
