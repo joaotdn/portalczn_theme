@@ -1,6 +1,6 @@
 <?php
 /**
- * @param int $category_id identificador da categoria
+ * @param int $category_id Identificador da categoria
  *
  * @return false|string Buffer de saída do conteúdo do bloco
  */
@@ -32,7 +32,8 @@ function news_block( $category_id = 1 ) {
                     <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
                 </span>
             </h3>
-            <h2><a href="<?php echo get_the_permalink( $posts[0]->ID ); ?>"
+            <h2>
+                <a href="<?php echo get_the_permalink( $posts[0]->ID ); ?>"
                    title="<?php echo get_the_title( $posts[0]->ID ); ?>"><?php echo get_the_title( $posts[0]->ID ); ?></a>
             </h2>
         </figcaption>
