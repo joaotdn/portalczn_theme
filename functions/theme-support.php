@@ -1,6 +1,5 @@
 <?php
 
-// Adding WP Functions & Theme Support
 function portalczn_theme_support() {
 
 	// Add WP Thumbnail Support
@@ -14,6 +13,7 @@ function portalczn_theme_support() {
 	add_image_size( 'feature-slider', 337.98, 253.48, true );
 	add_image_size( 'feature-category-big', 503.33, 282.31, true );
 	add_image_size( 'videos-component-small', 136, 120, true );
+	add_image_size( 'gallery-home-thumb', 770, 400, true );
 
 	// Add RSS Support
 	add_theme_support( 'automatic-feed-links' );
@@ -51,15 +51,6 @@ function portalczn_theme_support() {
 	// Hide admin bar
 	show_admin_bar(false);
 
-} /* end theme support */
+}
 
 add_action( 'after_setup_theme', 'portalczn_theme_support' );
-
-function getThumbUrl($size) {
-	global $post;
-	if(!$size || $size == null) {
-		$size = 'full';
-	}
-	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size );
-	echo $thumb[0];
-}
