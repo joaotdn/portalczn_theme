@@ -29,3 +29,6 @@ require_once( get_template_directory() . '/functions/get-video-id.php' );
 
 // Generate News Block
 require_once( get_template_directory() . '/functions/news-block.php' );
+
+// Custom post types
+require_once( get_template_directory() . '/functions/custom-post-types.php' );
