@@ -26,3 +26,6 @@ require_once( get_template_directory() . '/functions/get-video-thumb.php' );
 
 // Get video ID on Youtube
 require_once( get_template_directory() . '/functions/get-video-id.php' );
+
+// Generate News Block
+require_once( get_template_directory() . '/functions/news-block.php' );
