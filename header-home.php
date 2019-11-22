@@ -10,17 +10,6 @@
     <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
-
-    <style>
-        /* TODO Colocar no repositorio front */
-        .current-menu-item a,
-        .current_page_item a {
-            color: #d41f1c !important;
-        }
-        .close-button {
-            color: white;
-        }
-    </style>
 </head>
 <body <?php body_class(); ?>>
 

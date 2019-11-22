@@ -23,16 +23,17 @@
                 <li class="accordion-item <?php if ( $i == 0 ) {
 					echo 'is-active';
 				} ?>" data-accordion-item>
-                    <a href="#" class="accordion-title" title="<?php the_title(); ?>">
+                    <a href="#" class="accordion-title event-day" title="<?php the_title(); ?>" data-event-day>
                         <i class="far fa-calendar-alt"></i> <?php echo $info['portalczn_agenda_data']; ?>
                     </a>
                     <div class="accordion-content position-relative" data-tab-content>
-                        <div class="poster-calendar position-absolute height-100 width-100"
+                        <div class="poster-calendar position-absolute height-100 width-100 event-thumb"
                              data-bg="<?php echo wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'schedule-thumb' )[0]; ?>"></div>
                         <div class="calendar-info position-relative width-100 text-left">
-                            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                            <p><i class="fas fa-map-marker-alt"></i> <?php echo $info['portalczn_agenda_local']; ?></p>
-                            <p><i class="far fa-clock"></i> <?php echo $info['portalczn_agenda_hora']; ?></p>
+                            <h3><a href="#" data-open="scheduleModal" title="<?php the_title(); ?>" class="event-title"><?php the_title(); ?></a></h3>
+                            <p class="event-local"><i class="fas fa-map-marker-alt"></i> <?php echo $info['portalczn_agenda_local']; ?></p>
+                            <p class="event-hour"><i class="far fa-clock"></i> <?php echo $info['portalczn_agenda_hora']; ?></p>
+                            <p class="hide event-description" style="display: none;"><?php echo $info['portalczn_agenda_descricao']; ?></p>
                         </div>
                     </div>
                 </li>
