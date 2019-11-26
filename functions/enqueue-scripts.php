@@ -1,6 +1,6 @@
 <?php
 function site_scripts() {
-	define( PORTALCZN_VERSION, '1.0.4' );
+	define( PORTALCZN_VERSION, '1.0.5' );
 
 	// JS
 	wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/5ef691494b.js', array(), PORTALCZN_VERSION, false );

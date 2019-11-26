@@ -37,71 +37,15 @@ get_template_part( 'parts/home', 'news' );
                 </div>
 
                 <div class="cell small-12 medium-4 popular-article margin-bottom-1">
-                    <?php get_template_part('parts/popular', 'post'); ?>
+					<?php get_template_part( 'parts/popular', 'post' ); ?>
                 </div>
 
                 <div class="cell small-12 medium-4 margin-bottom-1">
-                    <div class="width-100 component-loteria">
-                        <div class="width-100">
-                            <header class="width-100 text-center margin-bottom-1">
-                                <img src="assets/img/logo-caixa.png" alt="">
-                            </header>
-
-                            <ul class="accordion" data-accordion>
-                                <li class="accordion-item is-active" data-accordion-item>
-                                    <a href="#" class="accordion-title megasena">Mega-sena</a>
-                                    <div class="accordion-content" data-tab-content>
-                                        <span>43</span>
-                                        <span>67</span>
-                                        <span>33</span>
-                                        <span>22</span>
-                                        <span>11</span>
-                                        <span>01</span>
-                                    </div>
-                                </li>
-                                <li class="accordion-item" data-accordion-item>
-                                    <a href="#" class="accordion-title quina">Quina</a>
-                                    <div class="accordion-content" data-tab-content>
-                                        <span>43</span>
-                                        <span>67</span>
-                                        <span>33</span>
-                                        <span>22</span>
-                                        <span>11</span>
-                                        <span>01</span>
-                                    </div>
-                                </li>
-                                <li class="accordion-item" data-accordion-item>
-                                    <a href="#" class="accordion-title lotofacil">Lotofacil</a>
-                                    <div class="accordion-content" data-tab-content>
-                                        <span>43</span>
-                                        <span>67</span>
-                                        <span>33</span>
-                                        <span>22</span>
-                                        <span>11</span>
-                                        <span>01</span>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <a href="#" class="width-100 button expanded small margin-bottom-0">Mais resultados (12/07 -
-                                13:30)</a>
-                        </div>
-                    </div>
+					<?php get_template_part( 'parts/component', 'loteria' ); ?>
                 </div>
 
                 <div class="cell small-12 medium-4 margin-bottom-1">
-                    <div class="cell small-12 medium-4 tv-diario">
-                        <header>
-                      <span class="text-uppercase font-header">
-                          <strong><i class="fas fa-satellite-dish"></i> TV Diário do Sertão</strong>
-                      </span>
-                        </header>
-                        <div class="width-100 text-center">
-                            <iframe height="260" src="http://www.diariodosertao.com.br/parceiros_tv?mudo=1"
-                                    frameborder="0"
-                                    allowfullscreen="" class="width-100 display-inline-block"></iframe>
-                        </div>
-                    </div>
+	                <?php get_template_part( 'parts/component', 'tvdiario' ); ?>
                 </div>
             </div>
         </div>

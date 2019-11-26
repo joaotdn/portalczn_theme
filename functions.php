@@ -32,6 +32,3 @@ require_once( get_template_directory() . '/functions/news-block.php' );
 
 // Custom post types
 require_once( get_template_directory() . '/functions/custom-post-types.php' );
-
-// Popular post
-require_once( get_template_directory() . '/functions/popular-post.php' );
