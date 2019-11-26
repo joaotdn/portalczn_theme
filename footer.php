@@ -1,55 +1,53 @@
-<div id="radio-player">
-    <div id='radio-bars'>
-        <div class='radio-bars'></div>
-        <div class='radio-bars'></div>
-        <div class='radio-bars'></div>
-        <div class='radio-bars'></div>
-        <div class='radio-bars'></div>
-        <div class='radio-bars'></div>
-        <div class='radio-bars'></div>
-        <div class='radio-bars'></div>
-        <div class='radio-bars'></div>
-    </div>
-    <span class="radio-name display-inline-block text-uppercase font-header"></span>
-
-    <button class="close-button close-radio" aria-label="Close radio" type="button">
-        <span aria-hidden="true">&times;</span>
-    </button>
-
-    <audio id="radio-audio">
-        <p>Seu navegador não possui suporte para essa funcionalidade. Atualize-o!</p>
-    </audio>
-</div>
+<?php
+$contact_page = get_page_link( get_page_by_title( 'Fale Conosco' )->ID );
+get_template_part( 'parts/component', 'radio-player' );
+?>
 <footer id="footer" class="container margin-top-2">
     <div class="grid-container padding-top-2 padding-bottom-2">
         <div class="grid-x grid-padding-x">
             <div class="cell small-12 medium-4 text-center medium-text-left">
-                <a href="#" title="Página principal" class="logo-footer">
-                    <img src="assets/img/logofooter.png" alt="Marca da CZN" width="130">
+                <a href="<?php echo home_url(); ?>" title="Página principal" class="logo-footer">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logofooter.png"
+                         alt="<?php _e( 'Logo da CZN', 'portalczn' ); ?>"
+                         class="no-lazy" data-src width="130">
                 </a>
                 <div class="width-100 margin-top-1 footer-contact">
-                    <p><strong>&copy;2019 - Portal CZN - O Sertão em Notícias</strong></p>
-                    <p><i class="fas fa-at"></i> redacao@portalczn.com.br</p>
-                    <p><i class="fas fa-phone-alt"></i> (83) 98787.7676</p>
-                    <p class="margin-0"><i class="far fa-envelope"></i> <a href="#" title="Fale conosco">Fale
-                            conosco</a></p>
+                    <p><strong>&copy;<?php echo date( "Y" ); ?> - Portal CZN
+                            - <?php echo get_bloginfo( 'description' ); ?></strong></p>
+                    <p><i class="fas fa-at"></i> <?php echo get_field( 'portalczn_email', 'option' ); ?></p>
+                    <p><i class="fas fa-phone-alt"></i> <?php echo get_field( 'portalczn_fone', 'option' ); ?></p>
+                    <p class="margin-0"><i class="far fa-envelope"></i>
+                        <a href="<?php echo $contact_page; ?>"
+                           title="Fale conosco">Fale conosco</a>
+                    </p>
                 </div>
             </div>
             <div class="cell small-12 medium-8">
                 <ul class="menu align-right show-for-medium">
-                    <li><a href="#" title="" class="active">Principal</a></li>
-                    <li><a href="#" title="">Política</a></li>
-                    <li><a href="#" title="">Policial</a></li>
-                    <li><a href="#" title="">Esportes</a></li>
-                    <li><a href="#" title="">Brasil</a></li>
-                    <li><a href="#" title="">Mundo</a></li>
-                    <li><a href="#" title="" class="tv-link"><i class="fas fa-play"></i> TV</a></li>
+					<?php get_template_part( 'parts/menu', 'items' ); ?>
                 </ul>
 
                 <div class="width-100 margin-top-1 keep-czn text-center medium-text-right">
-                    <span><a href="#" title="Facebook"><i class="fab fa-facebook"></i></a></span>
-                    <span><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></span>
-                    <span><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></span>
+					<?php
+					$social = get_field( 'portalczn_redes_sociais', 'option' );
+					foreach ($social as $key => $value) {
+					    if ($key == 'portalczn_facebook' && !empty($value)) {
+					        printf('<span><a href="%s" target="_blank" title="Siga-nos no Facebook"><i class="fab fa-facebook"></i></a></span>', $value);
+                        }
+
+						if ($key == 'portalczn_twitter' && !empty($value)) {
+							printf('<span><a href="%s" target="_blank" title="Siga-nos no Twitter"><i class="fab fa-twitter"></i></a></span>', $value);
+						}
+
+						if ($key == 'portalczn_instagram' && !empty($value)) {
+							printf('<span><a href="%s" target="_blank" title="Siga-nos no Instagram"><i class="fab fa-instagram"></i></a></span>', $value);
+						}
+
+						if ($key == 'portalczn_youtube' && !empty($value)) {
+							printf('<span><a href="%s" target="_blank" title="Siga-nos no Youtube"><i class="fab fa-youtube"></i></a></span>', $value);
+						}
+                    }
+					?>
                 </div>
             </div>
         </div>
