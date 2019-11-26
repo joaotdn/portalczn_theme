@@ -10,13 +10,7 @@
 
             <div class="cell auto show-for-large">
                 <ul class="menu">
-                    <li><a href="#" title="" class="active">Principal</a></li>
-                    <li><a href="#" title="">Política</a></li>
-                    <li><a href="#" title="">Policial</a></li>
-                    <li><a href="#" title="">Esportes</a></li>
-                    <li><a href="#" title="">Brasil</a></li>
-                    <li><a href="#" title="">Mundo</a></li>
-                    <li><a href="#" title="" class="tv-link"><i class="fas fa-play"></i> TV</a></li>
+                    <?php  ?>
                 </ul>
             </div>
 
