@@ -1,6 +1,6 @@
 <?php
 /**
- * @param $id ID da postagem do vídeo
+ * @param $id integer ID da postagem do vídeo
  *
  * @param string $size Tamanho do thumb
  *
