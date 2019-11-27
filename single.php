@@ -1,8 +1,10 @@
 <?php
 get_header( 'single' );
 global $post;
-$obj = get_queried_object();
+$obj      = get_queried_object();
 $category = get_the_category();
+$categories = get_field( 'portalczn_ultimas_noticias', 'option' );
+$tags = get_the_tags( $post->ID );
 ?>
     <div class="container bgwhite header-single">
         <div class="grid-container">
@@ -12,7 +14,8 @@ $category = get_the_category();
                     <a href="#" data-mobile-menu title="Mostrar menu" class="display-inline-block margin-right-1">
                         <i class="fas fa-bars"></i>
                     </a>
-                    <a href="<?php echo home_url(); ?>" title="Ir para a página principal" class="display-inline-block logo">
+                    <a href="<?php echo home_url(); ?>" title="Ir para a página principal"
+                       class="display-inline-block logo">
                         <img src="<?php the_field( 'portalczn_logo', 'option' ); ?>"
                              alt="<?php _e( 'Logo da CZN', 'portalczn' ); ?>"
                              class="no-lazy" data-src width="150">
@@ -21,7 +24,9 @@ $category = get_the_category();
 
                 <div class="cell small-6 medium-4 medium-text-center text-right">
                     <h2 class="cat-name margin-0">
-                        <strong><a href="<?php echo get_category_link( $category[0]->term_id ); ?>" title="<?php echo $category[0]->cat_name; ?>"><i class="far fa-folder"></i> <?php echo $category[0]->cat_name; ?></a></strong>
+                        <strong><a href="<?php echo get_category_link( $category[0]->term_id ); ?>"
+                                   title="<?php echo $category[0]->cat_name; ?>"><i
+                                        class="far fa-folder"></i> <?php echo $category[0]->cat_name; ?></a></strong>
                     </h2>
                 </div>
 
@@ -43,9 +48,9 @@ $category = get_the_category();
         <div class="grid-container">
             <div class="grid-x grid-padding-x align-center single-banner" role="banner">
                 <div class="cell auto text-center">
-	                <?php
-	                portalczn_show_banner( 'portalczn_banners_topo' );
-	                ?>
+					<?php
+					portalczn_show_banner( 'portalczn_banners_topo' );
+					?>
                 </div>
             </div>
         </div>
@@ -56,164 +61,37 @@ $category = get_the_category();
             <div class="grid-x grid-padding-x">
                 <div class="cell small-12 margin-bottom-1 hide-for-medium">
                     <ul class="menu align-center">
-                        <li>
-                            <a href="#" title="Compartilhar no Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Compartilhar no Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Compartilhar no Linkedin">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Enviar por email">
-                                <i class="far fa-envelope"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Imprimir post">
-                                <i class="fas fa-print"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" title="Comentários">
-                                <i class="far fa-comments"></i>
-                            </a>
-                        </li>
+						<?php get_share_items( $post->ID ); ?>
                     </ul>
                 </div>
+
                 <aside class="cell medium-1 share-post padding-right-0" data-sticky-container>
                     <div class="sticky" data-sticky-on="medium" data-margin-top="3" data-sticky data-anchor="content">
                         <ul class="menu vertical">
-                            <li>
-                                <a href="#" title="Compartilhar no Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Compartilhar no Facebook">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Compartilhar no Linkedin">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Enviar por email">
-                                    <i class="far fa-envelope"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" title="Imprimir post">
-                                    <i class="fas fa-print"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#comments" title="Comentários">
-                                    <i class="far fa-comments"></i>
-                                </a>
-                            </li>
+							<?php get_share_items( $post->ID ); ?>
                         </ul>
                     </div>
                 </aside>
+
                 <div class="cell small-12 medium-11" id="content">
                     <div class="grid-container padding-left-0">
                         <div class="grid-padding-x grid-x">
                             <header class="cell small-12 post-header margin-bottom-1 margin-top-1">
                                 <h3 class="margin-bottom-0 headline-kicker display-inline-block width-100">
-                                    <span class="display-inline-block">Operação Lava-jato</span>
+                                    <span class="display-inline-block"><?php echo $tags[0]->name; ?></span>
                                 </h3>
-                                <h2>Governo distribui cargos no Incra a aliados políticos</h2>
-                                <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Aperiam doloribus error laboriosam neque nihil praesentium similique sit unde.</p>
+                                <h2><?php the_title(); ?></h2>
+                                <p class="post-excerpt"><?php the_excerpt(); ?></p>
                             </header>
                             <article class="cell small-12" role="article">
                                 <div class="grid-container full">
                                     <div class="grid-x grid-padding-x">
                                         <div class="cell small-12 large-8 post-content text-wrap">
-                                            <div class="width-100 float-left margin-bottom-1 post-author">
-                                                <div class="float-left">
-                                                    <span class="margin-0"><strong>Jota França, Portal CZN</strong></span><br>
-                                                    <span>27 de Julho de 2019 | 18h45</span>
-                                                </div>
-                                                <div class="float-right">
-                                                    <a href="#" title="Aumentar fonte"
-                                                       class="display-inline-block font-plus"><i
-                                                                class="fas fa-font"></i> +</a>
-                                                    <a href="#" title="Diminuir fonte"
-                                                       class="display-inline-block font-minus"><i
-                                                                class="fas fa-font"></i> -</a>
-                                                </div>
-                                            </div>
-
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                architecto consequatur delectus eaque eius enim eum ex impedit ipsam,
-                                                natus numquam officiis omnis quod repellat sed tempore vel velit
-                                                veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                                                consectetur debitis distinctio dolorum, eaque eum illo maxime molestiae
-                                                nostrum rerum! Animi consequatur cum cumque debitis ea eveniet optio
-                                                quam ut!</p>
-
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolorem
-                                                itaque provident repellat totam. Assumenda cumque eaque eius, enim fuga
-                                                illum itaque minus molestiae necessitatibus nostrum praesentium
-                                                quibusdam unde veniam?</p>
-
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                architecto aspernatur autem consectetur dolores, ducimus eius eos
-                                                laudantium molestiae nam natus perferendis quis repellendus sint vel. A
-                                                deleniti tempore voluptates! Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit. Eius excepturi impedit praesentium qui quisquam
-                                                tempore. Autem eaque eligendi et fuga harum, nobis reiciendis.
-                                                Consequatur dolor dolores dolorum nisi possimus, sunt? Lorem ipsum dolor
-                                                sit amet, consectetur adipisicing elit. Amet culpa cumque dolorem ea
-                                                eius eveniet itaque iure magnam maxime minus molestias nisi obcaecati
-                                                optio pariatur possimus quidem quis repudiandae, vero.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                architecto consequatur delectus eaque eius enim eum ex impedit ipsam,
-                                                natus numquam officiis omnis quod repellat sed tempore vel velit
-                                                veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
-                                                consectetur debitis distinctio dolorum, eaque eum illo maxime molestiae
-                                                nostrum rerum! Animi consequatur cum cumque debitis ea eveniet optio
-                                                quam ut!</p>
-
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolorem
-                                                itaque provident repellat totam. Assumenda cumque eaque eius, enim fuga
-                                                illum itaque minus molestiae necessitatibus nostrum praesentium
-                                                quibusdam unde veniam?</p>
-
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
-                                                architecto aspernatur autem consectetur dolores, ducimus eius eos
-                                                laudantium molestiae nam natus perferendis quis repellendus sint vel. A
-                                                deleniti tempore voluptates! Lorem ipsum dolor sit amet, consectetur
-                                                adipisicing elit. Eius excepturi impedit praesentium qui quisquam
-                                                tempore. Autem eaque eligendi et fuga harum, nobis reiciendis.
-                                                Consequatur dolor dolores dolorum nisi possimus, sunt? Lorem ipsum dolor
-                                                sit amet, consectetur adipisicing elit. Amet culpa cumque dolorem ea
-                                                eius eveniet itaque iure magnam maxime minus molestias nisi obcaecati
-                                                optio pariatur possimus quidem quis repudiandae, vero.</p>
-
-                                            <div class="width-100 float-left post-tags margin-bottom-2 margin-top-2">
-                                                <header>
-                                                    <strgon>O que sabemos sobre:</strgon>
-                                                </header>
-                                                <ul class="menu">
-                                                    <li><a href="#" class="button small" title=""><i
-                                                                    class="fas fa-tag"></i> Jair Bolsonaro</a></li>
-                                                    <li><a href="#" class="button small" title=""><i
-                                                                    class="fas fa-tag"></i> Lava-Jato</a></li>
-                                                    <li><a href="#" class="button small" title=""><i
-                                                                    class="fas fa-tag"></i> Juiz Moro</a></li>
-                                                </ul>
-                                            </div>
+											<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+												<?php get_template_part( 'parts/loop', 'single' ); ?>
+											<?php endwhile; else : ?>
+												<?php get_template_part( 'parts/content', 'missing' ); ?>
+											<?php endif; ?>
 
                                             <div id="comments" class="width-100 margin-bottom-2">
                                                 <div class="fb-comments"
@@ -226,6 +104,7 @@ $category = get_the_category();
                                                     <header class="cell small-12 margin-bottom-1">
                                                         <h4>Recomendadas para você</h4>
                                                     </header>
+
                                                     <div class="cell small-12 medium-4 news-group">
                                                         <figure class="width-100 position-relative">
                                                             <a href="#" class="news-cat display-block width-100"
@@ -242,61 +121,12 @@ $category = get_the_category();
                                                                     <span class="display-inline-block">Previdência</span>
 
                                                                     <span class="display-inline-block open-share">
-                                <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                            </span>
+                                                                        <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
+                                                                    </span>
                                                                 </h3>
                                                                 <h2><a href="#" title="">Grande acordo comercial que o
                                                                         Brasil tem que fazer é com ele mesmo, diz
                                                                         secretário</a></h2>
-                                                            </figcaption>
-                                                        </figure>
-                                                    </div>
-                                                    <div class="cell small-12 medium-4 news-group">
-                                                        <figure class="width-100 position-relative">
-                                                            <a href="#" class="news-cat display-block width-100"
-                                                               title="Todas as notícias em Brasil"><i
-                                                                        class="far fa-folder"></i> Brasil</a>
-                                                            <a href="#"
-                                                               class="display-inline-block width-100 news-thumb position-relative"
-                                                               title="">
-                                                                <img src="assets/img/temp/news7.webp" alt="">
-                                                            </a>
-
-                                                            <figcaption class="width-100 margin-top-1">
-                                                                <h3 class="headline-kicker display-inline-block width-100">
-                                                                    <span class="display-inline-block">São Paulo</span>
-
-                                                                    <span class="display-inline-block open-share">
-                                <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                            </span>
-                                                                </h3>
-                                                                <h2><a href="#" title="">Vestibular 2020: Veja os
-                                                                        cronogramas das principais universidades de
-                                                                        SP</a></h2>
-                                                            </figcaption>
-                                                        </figure>
-                                                    </div>
-                                                    <div class="cell small-12 medium-4 news-group">
-                                                        <figure class="width-100 position-relative">
-                                                            <a href="#" class="news-cat display-block width-100"
-                                                               title="Todas as notícias em Mundo"><i
-                                                                        class="far fa-folder"></i> Mundo</a>
-                                                            <a href="#"
-                                                               class="display-inline-block width-100 news-thumb position-relative"
-                                                               title="">
-                                                                <img src="assets/img/temp/news8.webp" alt="">
-                                                            </a>
-
-                                                            <figcaption class="width-100 margin-top-1">
-                                                                <h3 class="headline-kicker display-inline-block width-100">
-                                                                    <span class="display-inline-block">EUA</span>
-
-                                                                    <span class="display-inline-block open-share">
-                                <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                            </span>
-                                                                </h3>
-                                                                <h2><a href="#" title="">Líder democrata busca apoio
-                                                                        para condenar tuíte racista de Trump</a></h2>
                                                             </figcaption>
                                                         </figure>
                                                     </div>
