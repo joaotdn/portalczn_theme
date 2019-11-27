@@ -10,7 +10,7 @@
 
             <div class="cell auto show-for-large">
                 <ul class="menu">
-                    <?php  ?>
+                    <?php get_template_part('parts/menu', 'items'); ?>
                 </ul>
             </div>
 
