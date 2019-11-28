@@ -11,6 +11,12 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<?php wp_head(); ?>
+
+    <style>
+        .aligncenter {
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
 <div id="fb-root"></div>

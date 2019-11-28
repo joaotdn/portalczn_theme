@@ -99,39 +99,8 @@ $tags = get_the_tags( $post->ID );
                                                      data-width="100%" data-numposts="5"></div>
                                             </div>
 
-                                            <div class="grid-container full post-related">
-                                                <div class="grid-padding-x grid-x">
-                                                    <header class="cell small-12 margin-bottom-1">
-                                                        <h4>Recomendadas para você</h4>
-                                                    </header>
+                                            <?php get_template_part('parts/posts', 'recomended'); ?>
 
-                                                    <div class="cell small-12 medium-4 news-group">
-                                                        <figure class="width-100 position-relative">
-                                                            <a href="#" class="news-cat display-block width-100"
-                                                               title="Todas as notícias em Policial"><i
-                                                                        class="far fa-folder"></i> Policial</a>
-                                                            <a href="#"
-                                                               class="display-inline-block width-100 news-thumb position-relative"
-                                                               title="">
-                                                                <img src="assets/img/temp/news6.webp" alt="">
-                                                            </a>
-
-                                                            <figcaption class="width-100 margin-top-1">
-                                                                <h3 class="headline-kicker display-inline-block width-100">
-                                                                    <span class="display-inline-block">Previdência</span>
-
-                                                                    <span class="display-inline-block open-share">
-                                                                        <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                                                                    </span>
-                                                                </h3>
-                                                                <h2><a href="#" title="">Grande acordo comercial que o
-                                                                        Brasil tem que fazer é com ele mesmo, diz
-                                                                        secretário</a></h2>
-                                                            </figcaption>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <aside class="post-sidebar cell small-12 large-4">
                                             <div class="grid-x grid-padding-x">
