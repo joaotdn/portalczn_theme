@@ -10,6 +10,38 @@
 	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
+
+    <script>
+        //<![CDATA[
+        const getData = {
+            'urlDir':'<?php bloginfo('template_directory');?>/',
+            'ajaxDir':'<?php echo stripslashes(get_admin_url()).'admin-ajax.php';?>',
+        }
+        //]]>
+    </script>
+
+    <!--    TODO tranferir para o front-->
+    <style>
+        .load-posts.disabled > i {
+            -webkit-animation: rotation 2s infinite linear;
+        }
+        @-webkit-keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(359deg);
+            }
+        }
+        @keyframes rotation {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to {
+                -webkit-transform: rotate(359deg);
+            }
+        }
+    </style>
 </head>
 <body>
 <div id="fb-root"></div>

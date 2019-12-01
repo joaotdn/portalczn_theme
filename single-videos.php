@@ -6,6 +6,8 @@ $obj        = get_queried_object();
 $category   = get_the_category();
 $categories = get_field( 'portalczn_ultimas_noticias', 'option' );
 $tags       = get_the_tags( $post->ID );
+$videos_id  = get_cat_ID( 'Videos' );
+$videos     = get_the_category_by_ID( $videos_id );
 ?>
 
     <div class="container bgwhite header-single header-video">
@@ -27,9 +29,9 @@ $tags       = get_the_tags( $post->ID );
                 <div class="cell small-6 medium-4 medium-text-center text-right">
                     <h2 class="cat-name margin-0">
                         <strong>
-                            <a href="<?php echo get_category_link( $category[0]->term_id ); ?>"
-                               title="<?php echo $category[0]->cat_name; ?>">
-                                <i class="fas fa-play"></i> <?php echo $category[0]->cat_name; ?>
+                            <a href="<?php echo get_category_link( $videos_id ); ?>"
+                               title="<?php echo $videos; ?>">
+                                <i class="fas fa-play"></i> <?php echo $videos; ?>
                             </a>
                         </strong>
                     </h2>
@@ -48,16 +50,6 @@ $tags       = get_the_tags( $post->ID );
             </div>
         </div>
     </div>
-
-    <!--<div class="container padding-top-1 bg-black">-->
-    <!--    <div class="grid-container">-->
-    <!--        <div class="grid-x grid-padding-x align-center single-banner" role="banner">-->
-    <!--            <div class="cell auto text-center">-->
-    <!--                <img src="assets/img/pub1.gif" alt="">-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
 
 <?php
 if ( get_field( 'portalczn_post_video' ) ):
@@ -99,14 +91,14 @@ if ( get_field( 'portalczn_post_video' ) ):
             <div class="grid-x grid-padding-x">
                 <div class="cell small-12 margin-bottom-1 hide-for-medium">
                     <ul class="menu align-center">
-	                    <?php get_share_items( $post->ID ); ?>
+						<?php get_share_items( $post->ID ); ?>
                     </ul>
                 </div>
 
                 <aside class="cell medium-1 share-post padding-right-0" data-sticky-container>
                     <div class="sticky" data-sticky-on="medium" data-margin-top="3" data-sticky data-anchor="content">
                         <ul class="menu vertical">
-	                        <?php get_share_items( $post->ID ); ?>
+							<?php get_share_items( $post->ID ); ?>
                         </ul>
                     </div>
                 </aside>
@@ -125,11 +117,11 @@ if ( get_field( 'portalczn_post_video' ) ):
                                 <div class="grid-container full">
                                     <div class="grid-x grid-padding-x">
                                         <div class="cell small-12 large-8 post-content text-wrap">
-								            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-									            <?php get_template_part( 'parts/loop', 'single' ); ?>
-								            <?php endwhile; else : ?>
-									            <?php get_template_part( 'parts/content', 'missing' ); ?>
-								            <?php endif; ?>
+											<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+												<?php get_template_part( 'parts/loop', 'single' ); ?>
+											<?php endwhile; else : ?>
+												<?php get_template_part( 'parts/content', 'missing' ); ?>
+											<?php endif; ?>
 
                                             <div id="comments" class="width-100 margin-bottom-2">
                                                 <div class="fb-comments"
@@ -137,10 +129,10 @@ if ( get_field( 'portalczn_post_video' ) ):
                                                      data-width="100%" data-numposts="5"></div>
                                             </div>
 
-								            <?php get_template_part('parts/posts', 'recomended'); ?>
+											<?php get_template_part( 'parts/posts', 'recomended' ); ?>
 
                                         </div>
-							            <?php get_sidebar('single'); ?>
+										<?php get_sidebar( 'single' ); ?>
                                     </div>
                                 </div>
                             </article>

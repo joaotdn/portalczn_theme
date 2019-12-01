@@ -16,6 +16,7 @@ function portalczn_theme_support() {
 	add_image_size( 'videos-component-small', 136, 120, true );
 	add_image_size( 'gallery-home-thumb', 770, 400, true );
 	add_image_size( 'schedule-thumb', 368.98, 176, true );
+	add_image_size( 'lastnews-thumb', 200, 112.56, true );
 
 	// Add RSS Support
 	add_theme_support( 'automatic-feed-links' );

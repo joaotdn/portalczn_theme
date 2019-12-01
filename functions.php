@@ -36,6 +36,9 @@ require_once( get_template_directory() . '/functions/custom-post-types.php' );
 // Share post items
 require_once( get_template_directory() . '/functions/get-share-items.php' );
 
+// Load mores posts on category page
+require_once( get_template_directory() . '/functions/more-news.php' );
+
 // Custom for Videos
 add_filter( 'single_template', function ( $single_template ) {
 	if ( has_category( 'videos' ) ) {
