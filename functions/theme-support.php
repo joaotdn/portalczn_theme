@@ -10,6 +10,7 @@ function portalczn_theme_support() {
 
 	// Custom sizes
 	add_image_size( 'feature-medium', 236.66, 130.38, true );
+	add_image_size( 'feature-xsmall', 100, 56.47, true );
 	add_image_size( 'feature-slider', 337.98, 253.48, true );
 	add_image_size( 'feature-category-big', 503.33, 282.31, true );
 	add_image_size( 'videos-component-small', 136, 120, true );

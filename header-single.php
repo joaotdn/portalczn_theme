@@ -9,14 +9,7 @@
 	<link href="<?php echo get_template_directory_uri(); ?>/assets/img/logofooter.png" rel="apple-touch-icon"/>
 	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
 	<?php wp_head(); ?>
-
-    <style>
-        .aligncenter {
-            margin: 0 auto;
-        }
-    </style>
 </head>
 <body>
 <div id="fb-root"></div>

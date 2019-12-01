@@ -1,4 +1,5 @@
 <?php
+
 function portalczn_show_banner( $name = '' ) {
 	$banners = get_field( $name, 'option' );
 	$is_html = get_field( $name . '_tipo', 'option' );

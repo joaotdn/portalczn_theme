@@ -80,7 +80,7 @@ $tags = get_the_tags( $post->ID );
                                 <h3 class="margin-bottom-0 headline-kicker display-inline-block width-100">
                                     <span class="display-inline-block"><?php echo $tags[0]->name; ?></span>
                                 </h3>
-                                <h2><?php the_title(); ?></h2>
+                                <h2 id="post-title"><?php the_title(); ?></h2>
                                 <p class="post-excerpt"><?php the_excerpt(); ?></p>
                             </header>
                             <article class="cell small-12" role="article">
@@ -102,102 +102,7 @@ $tags = get_the_tags( $post->ID );
                                             <?php get_template_part('parts/posts', 'recomended'); ?>
 
                                         </div>
-                                        <aside class="post-sidebar cell small-12 large-4">
-                                            <div class="grid-x grid-padding-x">
-                                                <div class="czn-widget related-features cell small-12 medium-6 large-12">
-                                                    <header>
-                                                        <h4>Destaques em <a href="#"
-                                                                            title=""><strong><i>Política</i></strong></a>
-                                                        </h4>
-                                                    </header>
-                                                    <nav class="post-features margin-top-1">
-                                                        <div class="media-object">
-                                                            <div class="media-object-section">
-                                                                <div class="thumbnail">
-                                                                    <img src="assets/img/temp/news6.webp" width="100">
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-object-section">
-                                                                <h2>
-                                                                    <a href="#" title="">
-                                                                        Governo pode devolver terras desapropriadas para
-                                                                        antigos donos
-                                                                    </a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                        <div class="media-object">
-                                                            <div class="media-object-section">
-                                                                <div class="thumbnail">
-                                                                    <img src="assets/img/temp/news7.webp" width="100">
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-object-section">
-                                                                <h2>
-                                                                    <a href="#" title="">
-                                                                        Novo ataque nos EUA deixa 9 mortos e 16 feridos
-                                                                        em Ohio; horas antes, homem assassinou 20 no
-                                                                        Texas
-                                                                    </a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                        <div class="media-object">
-                                                            <div class="media-object-section">
-                                                                <div class="thumbnail">
-                                                                    <img src="assets/img/temp/news8.webp" width="100">
-                                                                </div>
-                                                            </div>
-                                                            <div class="media-object-section">
-                                                                <h2>
-                                                                    <a href="#" title="">
-                                                                        Após ataques de Bolsonaro, boatos contra alvos
-                                                                        do presidente ganham impulso nas redes
-                                                                    </a>
-                                                                </h2>
-                                                            </div>
-                                                        </div>
-                                                    </nav>
-                                                </div>
-                                                <div class="czn-widget related-features cell small-12 medium-6 large-12">
-                                                    <div class="white-container width-100 text-center margin-bottom-1"
-                                                         role="banner">
-                                                        <img src="assets/img/temp/pub3.gif" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="czn-widget related-features cell small-12">
-                                                    <div id="radios-widget" class="width-100 padding-2">
-                                                        <header class="text-center">
-                                                            <h4>
-                                                                <i class="fas fa-broadcast-tower display-inline-block margin-right-1"></i>Rádios
-                                                                OnLine</h4>
-                                                        </header>
-                                                        <div class="grid-container margin-top-1">
-                                                            <div class="grid-x grid-padding-x align-middle">
-                                                                <div class="cell auto">
-                                                                    <select name="radios" id="radios-select"
-                                                                            class="font-header">
-                                                                        <option>Selecionar rádio</option>
-                                                                        <option value="http://72.29.81.124:8118/;stream.mp3">
-                                                                            Tabajara FM
-                                                                        </option>
-                                                                        <option value="http://72.29.81.124:8226/;stream.mp3">
-                                                                            Tabajara AM
-                                                                        </option>
-                                                                        <option value="http://72.29.81.124:8118/;stream.mp3">
-                                                                            Patamuté FM
-                                                                        </option>
-                                                                        <option value="http://72.29.81.124:8118/;stream.mp3">
-                                                                            Difusora Cajazeiras
-                                                                        </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </aside>
+                                        <?php get_sidebar('single'); ?>
                                     </div>
                                 </div>
                             </article>
