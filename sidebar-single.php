@@ -15,7 +15,7 @@ $category = get_the_category( $post->ID );
 					'meta_key'       => 'popular_posts',
 					'orderby'        => 'meta_value_num',
 					'order'          => 'DESC',
-					'category'       => $category[0]->slug
+					'category_name'       => $category[0]->slug
 				) );
 				foreach ( $posts as $popular ):
 					?>

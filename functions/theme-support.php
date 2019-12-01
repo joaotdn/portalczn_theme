@@ -6,7 +6,7 @@ function portalczn_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Default thumbnail size
-	set_post_thumbnail_size(125, 125, true);
+	set_post_thumbnail_size( 125, 125, true );
 
 	// Custom sizes
 	add_image_size( 'feature-medium', 236.66, 130.38, true );
@@ -51,7 +51,7 @@ function portalczn_theme_support() {
 	$GLOBALS['content_width'] = apply_filters( 'portalczn_theme_support', 1200 );
 
 	// Hide admin bar
-	show_admin_bar(false);
+	show_admin_bar( false );
 
 }
 

@@ -35,3 +35,11 @@ require_once( get_template_directory() . '/functions/custom-post-types.php' );
 
 // Share post items
 require_once( get_template_directory() . '/functions/get-share-items.php' );
+
+// Custom for Videos
+add_filter( 'single_template', function ( $single_template ) {
+	if ( has_category( 'videos' ) ) {
+		$single_template = dirname( __FILE__ ) . '/single-videos.php';
+	}
+	return $single_template;
+}, PHP_INT_MAX, 2 );

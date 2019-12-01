@@ -2,8 +2,9 @@
 $fone         = get_field( 'portalczn_fone', 'option' );
 $facebook     = get_field( 'portalczn_facebook', 'option' );
 $contact_page = get_page_by_title( 'Fale conosco' );
+$videos       = get_cat_ID( 'Videos' );
 ?>
-<section id="topbar" class="container">
+<section id="topbar" class="container <?php if ( in_category( $videos ) ) { echo 'topbar-videos'; } ?>">
     <div class="grid-container">
         <div class="grid-x grid-padding-x">
             <div class="cell auto">
