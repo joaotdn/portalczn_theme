@@ -155,36 +155,6 @@ $obj = get_queried_object();
                                 </h2>
                             </div>
                         </div>
-                        <div class="media-object">
-                            <div class="media-object-section">
-                                <div class="thumbnail">
-                                    <img src="assets/img/temp/news7.webp" width="100">
-                                </div>
-                            </div>
-                            <div class="media-object-section">
-                                <h2>
-                                    <a href="#" title="">
-                                        Novo ataque nos EUA deixa 9 mortos e 16 feridos em Ohio; horas antes, homem
-                                        assassinou 20 no Texas
-                                    </a>
-                                </h2>
-                            </div>
-                        </div>
-                        <div class="media-object">
-                            <div class="media-object-section">
-                                <div class="thumbnail">
-                                    <img src="assets/img/temp/news8.webp" width="100">
-                                </div>
-                            </div>
-                            <div class="media-object-section">
-                                <h2>
-                                    <a href="#" title="">
-                                        Após ataques de Bolsonaro, boatos contra alvos do presidente ganham impulso nas
-                                        redes
-                                    </a>
-                                </h2>
-                            </div>
-                        </div>
                     </nav>
                 </div>
                 <div class="czn-widget width-100 margin-bottom-2">
