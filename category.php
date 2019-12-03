@@ -61,7 +61,9 @@ $obj = get_queried_object();
 							'category'       => $obj->term_id
 						) );
 						foreach ( $posts as $post ) {
-							if(wp_get_post_tags( $post->ID )[0]) echo '<li><a href="' . get_tag_link( wp_get_post_tags( $post->ID )[0]->term_id ) . '" title="' . wp_get_post_tags( $post->ID )[0]->name . '">' . wp_get_post_tags( $post->ID )[0]->name . '</a></li>';
+							if ( wp_get_post_tags( $post->ID )[0] ) {
+								echo '<li><a href="' . get_tag_link( wp_get_post_tags( $post->ID )[0]->term_id ) . '" title="' . wp_get_post_tags( $post->ID )[0]->name . '">' . wp_get_post_tags( $post->ID )[0]->name . '</a></li>';
+							}
 						}
 						?>
                     </ul>
@@ -113,7 +115,10 @@ $obj = get_queried_object();
 					) );
 					foreach ( $posts as $post ):
 						?>
-                        <div class="media-object news-cat-item news-group">
+                        <div class="media-object news-cat-item news-group position-relative">
+                            <span class="display-inline-block open-share position-absolute" style="top: 0; right: 0;">
+                                <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
+                            </span>
                             <div class="media-object-section">
                                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?php echo get_the_post_thumbnail( $post->ID, 'lastnews-thumb' ); ?>
@@ -122,9 +127,6 @@ $obj = get_queried_object();
                             <div class="media-object-section">
                                 <h3 class="headline-kicker display-inline-block width-100">
                                     <span class="display-inline-block"><?php echo wp_get_post_tags( $post->ID )[0]->name; ?></span>
-                                    <span class="display-inline-block open-share">
-                                <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                            </span>
                                 </h3>
                                 <h2><a href="<?php the_permalink(); ?>"
                                        title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
@@ -132,35 +134,61 @@ $obj = get_queried_object();
                         </div>
 					<?php endforeach; ?>
                 </nav>
-                <a href="#" data-cat-id="<?php echo $obj->term_id; ?>" class="button expanded hollow load-posts"><i class="fas fa-plus"></i> Notícias</a>
+                <a href="#" data-cat-id="<?php echo $obj->term_id; ?>" class="button expanded hollow load-posts"><i
+                            class="fas fa-plus"></i> Notícias</a>
             </div>
 
             <div class="cell small-12 medium-4 category-sidebar margin-top-1">
                 <div class="czn-widget width-100 margin-bottom-2">
                     <header>
-                        <h4>Mais lidas em <strong>Política</strong></h4>
+                        <h4><i class="fas fa-fire-alt primary"></i> Mais lidas em <strong><?php echo $obj->name; ?></strong>
+                        </h4>
                     </header>
                     <nav class="post-features margin-top-1">
-                        <div class="media-object">
-                            <div class="media-object-section">
-                                <div class="thumbnail">
-                                    <img src="assets/img/temp/news6.webp" width="100">
+						<?php $posts = new WP_Query( array(
+							'posts_per_page' => 1,
+							'meta_key'       => 'popular_posts',
+							'orderby'        => 'meta_value_num',
+							'order'          => 'DESC',
+							'category'       => $obj->ID
+						) );
+						while ( $posts->have_posts() ) : $posts->the_post();
+							global $post;
+							?>
+                            <div class="media-object">
+                                <div class="media-object-section">
+                                    <div class="thumbnail">
+                                        <a href="<?php the_permalink(); ?>"
+                                           title="<?php the_title(); ?>">
+											<?php echo get_the_post_thumbnail( $post->ID, 'feature-xsmall' ); ?>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="media-object-section">
+                                    <h2>
+                                        <a href="<?php the_permalink(); ?>"
+                                           title="<?php the_title() ?>"><?php the_title() ?></a>
+                                    </h2>
                                 </div>
                             </div>
-                            <div class="media-object-section">
-                                <h2>
-                                    <a href="#" title="">
-                                        Governo pode devolver terras desapropriadas para antigos donos
-                                    </a>
-                                </h2>
-                            </div>
-                        </div>
+						<?php endwhile; ?>
                     </nav>
                 </div>
+
                 <div class="czn-widget width-100 margin-bottom-2">
                     <div class="white-container width-100 text-center margin-bottom-1" role="banner">
-                        <img src="assets/img/temp/pub3.gif" alt="">
+						<?php
+						portalczn_show_banner( 'portalczn_banners_post' );
+						?>
                     </div>
+                </div>
+
+                <div class="czn-widget width-100 margin-bottom-2">
+					<?php get_template_part( 'parts/component', 'radios' ); ?>
+                </div>
+
+                <div class="czn-widget width-100 margin-bottom-2">
+					<?php get_template_part( 'parts/component', 'tvdiario' ); ?>
                 </div>
             </div>
         </div>

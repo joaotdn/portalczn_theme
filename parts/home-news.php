@@ -21,7 +21,7 @@ $categories = get_field( 'portalczn_ultimas_noticias', 'option' );
 								'category'       => $news_cat
 							) );
 							foreach ( $posts as $post ) {
-								echo '<li><a href="' . get_tag_link( wp_get_post_tags( $post->ID )[0]->term_id ) . '" title="' . wp_get_post_tags( $post->ID )[0]->name . '">' . wp_get_post_tags( $post->ID )[0]->name . '</a></li>';
+								if (wp_get_post_tags( $post->ID )) echo '<li><a href="' . get_tag_link( wp_get_post_tags( $post->ID )[0]->term_id ) . '" title="' . wp_get_post_tags( $post->ID )[0]->name . '">' . wp_get_post_tags( $post->ID )[0]->name . '</a></li>';
 							}
 							?>
                         </ul>
