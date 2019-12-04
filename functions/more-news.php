@@ -3,6 +3,7 @@ add_action( 'wp_ajax_nopriv_more_news', 'more_news' );
 add_action( 'wp_ajax_more_news', 'more_news' );
 
 function more_news() {
+    //    TODO bug repetindo as noticias
 	$offset   = $_GET['offset'];
 	$category = $_GET['category'];
 
@@ -11,7 +12,6 @@ function more_news() {
 		'category'       => $category,
 		'offset'         => $offset + 4
 	) );
-
 	if ( $posts->have_posts() ) : while ( $posts->have_posts() ) : $posts->the_post();
 		global $post;
 		?>

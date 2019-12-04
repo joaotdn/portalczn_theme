@@ -102,7 +102,7 @@ $obj = get_queried_object();
                                 </header>
 
                                 <div class="grid-container full">
-                                    <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3">
+                                    <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 videos-list">
                                         <?php
                                         $posts = get_posts( array(
 	                                        'posts_per_page' => 9,
@@ -112,11 +112,13 @@ $obj = get_queried_object();
                                         ?>
                                         <div class="cell video-feature-mini">
                                             <figure>
-                                                <a href="#video-player" title="<?php the_title(); ?>" class="show-video" data-magellan>
-                                                    <span><i class="fas fa-play-circle"></i></span>
-                                                    <img src="<?php echo get_video_thumb( $post->ID, 'lastnews-thumb' ); ?>" alt="<?php the_title(); ?>">
-                                                    <p><?php echo wp_get_post_tags( $post->ID )[0]->name; ?></p>
-                                                </a>
+                                                <div class="width-100 position-relative" data-magellan>
+                                                    <a href="#video-player" title="<?php the_title(); ?>" class="show-video" data-video-id="<?php echo $post->ID; ?>">
+                                                        <span><i class="fas fa-play-circle"></i></span>
+                                                        <img src="<?php echo get_video_thumb( $post->ID, 'lastnews-thumb' ); ?>" alt="<?php the_title(); ?>">
+                                                        <p><?php echo wp_get_post_tags( $post->ID )[0]->name; ?></p>
+                                                    </a>
+                                                </div>
                                                 <figcaption>
                                                     <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
                                                 </figcaption>
@@ -126,7 +128,11 @@ $obj = get_queried_object();
                                     </div>
                                 </div>
 
-                                <a href="#" class="load-videos button expanded hollow small text-uppercase alert" title="Carregar mais vídeos">Mais vídeos</a>
+                                <?php
+                                global $wp_query;
+                                    if (  $wp_query->max_num_pages > 1 )
+                                        echo '<a href="#" class="load-videos button expanded hollow small text-uppercase alert" title="Carregar mais vídeos">Mais vídeos</a>';
+                                ?>
                             </div>
                         </div>
                     </div>

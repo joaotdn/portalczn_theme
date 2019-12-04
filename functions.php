@@ -36,8 +36,11 @@ require_once( get_template_directory() . '/functions/custom-post-types.php' );
 // Share post items
 require_once( get_template_directory() . '/functions/get-share-items.php' );
 
-// Load mores posts on category page
+// Load more posts on category page
 require_once( get_template_directory() . '/functions/more-news.php' );
+
+// Load more videos on video page
+require_once( get_template_directory() . '/functions/more-videos.php' );
 
 // Custom for Videos
 add_filter( 'single_template', function ( $single_template ) {

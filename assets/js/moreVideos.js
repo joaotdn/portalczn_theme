@@ -1,30 +1,30 @@
-(function ($) {
+jQuery(function ($) {
     const btn = $('.load-videos');
 
     if (btn.length) {
-        btn.on('click', function (e) {
+        const data = {
+            'action': 'more_videos',
+            'query': videos_loadmore_params.posts,
+            'page': videos_loadmore_params.current_page
+        };
+
+        btn.click(function (e) {
             e.preventDefault();
-            const offset = $('.news-cat-item').length;
-            const category = $(this).data('cat-id');
 
             $.ajax({
-                url: getData.ajaxDir,
-                type: 'GET',
-                dataType: 'html',
-                data: {
-                    action: 'more_videos',
-                    offset,
-                    category
-                },
+                url: videos_loadmore_params.ajaxurl,
+                data: data,
+                type: 'POST',
                 beforeSend: function () {
                     btn.addClass('disabled');
                 },
-                complete: function () {
-                    btn.removeClass('disabled');
-                },
                 success: function (data) {
                     if (data) {
-                        $('nav', '.last-news-cat').append(data);
+                        $('.videos-list').first().append(data);
+                        videos_loadmore_params.current_page++;
+
+                        if (videos_loadmore_params.current_page == videos_loadmore_params.max_page)
+                            btn.remove();
                     } else {
                         btn.remove();
                     }
@@ -32,4 +32,4 @@
             });
         });
     }
-})(jQuery);
+});
