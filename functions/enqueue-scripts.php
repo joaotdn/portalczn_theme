@@ -2,7 +2,7 @@
 function site_scripts() {
 	global $wp_query;
 
-	define( PORTALCZN_VERSION, '1.0.23' );
+	define( PORTALCZN_VERSION, '1.0.24' );
 
 	// JS
 	wp_enqueue_script( 'fontawesome', 'https://kit.fontawesome.com/5ef691494b.js', array(), PORTALCZN_VERSION, false );

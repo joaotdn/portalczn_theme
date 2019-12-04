@@ -37,17 +37,7 @@ $obj = get_queried_object();
         </div>
     </div>
 
-    <!--<div class="container padding-top-1 bg-black">-->
-    <!--    <div class="grid-container">-->
-    <!--        <div class="grid-x grid-padding-x align-center single-banner" role="banner">-->
-    <!--            <div class="cell auto text-center">-->
-    <!--                <img src="assets/img/pub1.gif" alt="">-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</div>-->
-
-    <div class="container video-player-list">
+    <div class="container video-player-list position-relative">
         <div class="grid-container">
             <div class="grid-x grid-padding-x">
                 <div id="video-player" class="small-12 medium-5 cell" data-magellan-target="video-player">
@@ -70,21 +60,27 @@ $obj = get_queried_object();
                         </div>
                         <p>
                             <a href="<?php echo get_the_permalink( $posts[0]->ID ); ?>"
-                               class="button alert hollow small float-left" title="Continue lendo">
+                               class="button alert hollow small float-left video-post" title="Continue lendo">
                                 Continuar lendo <i class="fas fa-angle-right"></i>
                             </a>
 
-                            <span class="display-inline-block open-share float-right" title="Compartilhar">
-                            <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
-                        </span>
+                            <span class="display-inline-block open-share float-right" title="Compartilhar" data-postid="<?php echo $posts[0]->ID; ?>">
+                                <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
+                            </span>
                         </p>
                     </header>
                 </div>
                 <div class="small-12 medium-7 cell">
-                    <div class="responsive-embed">
+                    <div id="video-iframe" class="responsive-embed">
                         <?php echo $embed; ?>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="wait-video position-absolute width-100 height-100">
+            <div class="width-100 text-center">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/loading.gif" alt="">
             </div>
         </div>
     </div>
@@ -100,6 +96,16 @@ $obj = get_queried_object();
                                     <input type="search" class="width-100 search-video margin-0"
                                            placeholder="Buscar vídeos...">
                                 </header>
+
+                                <div class="grid-container align-center single-banner margin-bottom-2" role="banner">
+                                    <div class="grid-x grid-padding-x">
+                                        <div class="cell auto text-center">
+		                                    <?php
+		                                    portalczn_show_banner( 'portalczn_banners_topo' );
+		                                    ?>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="grid-container full">
                                     <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 videos-list">

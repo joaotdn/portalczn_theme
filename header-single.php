@@ -18,6 +18,32 @@
         }
         //]]>
     </script>
+
+    <!--  TODO retirar, passar para a versao front e substituir o app.css  -->
+    <style>
+        .wait-video {
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.7);
+            z-index: 999;
+            transition: opacity .4s linear;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .wait-video > div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .wait-video.active {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+
 </head>
 <body>
 <div id="fb-root"></div>

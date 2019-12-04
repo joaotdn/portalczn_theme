@@ -42,6 +42,9 @@ require_once( get_template_directory() . '/functions/more-news.php' );
 // Load more videos on video page
 require_once( get_template_directory() . '/functions/more-videos.php' );
 
+// Show video on player after click
+require_once( get_template_directory() . '/functions/show-video.php' );
+
 // Custom for Videos
 add_filter( 'single_template', function ( $single_template ) {
 	if ( has_category( 'videos' ) ) {
