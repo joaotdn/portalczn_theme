@@ -36,6 +36,9 @@ require_once( get_template_directory() . '/functions/custom-post-types.php' );
 // Share post items
 require_once( get_template_directory() . '/functions/get-share-items.php' );
 
+// Searchs functions
+require_once( get_template_directory() . '/functions/searchs.php' );
+
 // Load more posts on category page
 require_once( get_template_directory() . '/functions/more-news.php' );
 

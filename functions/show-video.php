@@ -16,5 +16,5 @@ function show_video() {
 	);
 
 	echo json_encode( $arr );
-	exit();
+	die();
 }

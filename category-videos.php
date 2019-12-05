@@ -93,8 +93,10 @@ $obj = get_queried_object();
                         <div class="grid-x grid-padding-x">
                             <div class="cell small-12 list-videos">
                                 <header class="width-100 padding-1 margin-bottom-2">
-                                    <input type="search" class="width-100 search-video margin-0"
-                                           placeholder="Buscar vídeos...">
+                                    <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+                                        <input type="search" name="s" class="width-100 search-video margin-0 search-autocomplete"
+                                               placeholder="Buscar vídeos...">
+                                    </form>
                                 </header>
 
                                 <div class="grid-container align-center single-banner margin-bottom-2" role="banner">

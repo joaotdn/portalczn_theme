@@ -35,5 +35,5 @@ function more_news() {
 	<?php
 	endwhile;
 		wp_reset_postdata(); endif;
-	exit();
+	die();
 }

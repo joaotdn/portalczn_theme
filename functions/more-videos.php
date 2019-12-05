@@ -16,8 +16,8 @@ function more_videos() {
 			?>
             <div class="cell video-feature-mini">
                 <figure>
-                    <div class="width-100" data-magellan>
-                        <a href="#video-player" title="<?php the_title(); ?>" data-video-id="<?php echo $post->ID; ?>">
+                    <div class="width-100 position-relative" data-magellan>
+                        <a href="#video-player" title="<?php the_title(); ?>" class="show-video" data-video-id="<?php echo $post->ID; ?>">
                             <span><i class="fas fa-play-circle"></i></span>
                             <img src="<?php echo get_video_thumb( $post->ID, 'lastnews-thumb' ); ?>"
                                  alt="<?php the_title(); ?>">
@@ -31,6 +31,7 @@ function more_videos() {
             </div>
 		<?php
 		endwhile;
-	}
-	exit();
+		wp_reset_postdata();
+    	}
+	die();
 }
