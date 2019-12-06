@@ -2,7 +2,7 @@
 function site_scripts() {
 	global $wp_query;
 
-	define( PORTALCZN_VERSION, '1.0.27' );
+	define( PORTALCZN_VERSION, '1.0.32' );
 
 	$array_params = array(
 		'ajaxurl'      => site_url() . '/wp-admin/admin-ajax.php',
@@ -16,34 +16,8 @@ function site_scripts() {
 
 	wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/app.js', array(), PORTALCZN_VERSION, true );
 
-	wp_enqueue_script( 'more-videos', get_template_directory_uri() . '/assets/js/moreVideos.js', array(), PORTALCZN_VERSION, true );
-
-	wp_localize_script( 'more-videos', 'videos_loadmore_params', $array_params );
-
-	wp_enqueue_style(
-		'jquery-auto-complete',
-		'https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.css',
-		array(),
-		'1.0.7'
-	);
-
-	wp_enqueue_script(
-		'jquery-auto-complete',
-		'https://cdnjs.cloudflare.com/ajax/libs/jquery-autocomplete/1.0.7/jquery.auto-complete.min.js',
-		array( 'site-js' ),
-		PORTALCZN_VERSION,
-		true
-	);
-
-	wp_enqueue_script(
-		'search',
-		get_template_directory_uri() . '/assets/js/autoSearchs.js',
-		array( 'site-js' ),
-		PORTALCZN_VERSION,
-		true
-	);
-
-	wp_localize_script( 'search', 'search', $array_params );
+	wp_enqueue_script( 'more-videos', get_template_directory_uri() . '/assets/js/ajax-loaders.js', array(), PORTALCZN_VERSION, true );
+	wp_localize_script( 'more-videos', 'ajax_params', $array_params );
 
 	// CSS
 	wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/app.css', array(), PORTALCZN_VERSION, 'all' );

@@ -61,5 +61,6 @@ get_template_part( 'parts/modal', 'schedule' );
 
 wp_footer();
 ?>
+
 </body>
 </html>

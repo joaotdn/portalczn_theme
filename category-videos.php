@@ -92,9 +92,10 @@ $obj = get_queried_object();
                     <div class="grid-container full">
                         <div class="grid-x grid-padding-x">
                             <div class="cell small-12 list-videos">
+
                                 <header class="width-100 padding-1 margin-bottom-2">
                                     <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                        <input type="search" name="s" class="width-100 search-video margin-0 search-autocomplete"
+                                        <input type="search" name="s" id="search-videos" class="width-100 search-video margin-0"
                                                placeholder="Buscar vídeos...">
                                     </form>
                                 </header>
@@ -110,6 +111,10 @@ $obj = get_queried_object();
                                 </div>
 
                                 <div class="grid-container full">
+                                    <div class="width-100 margin-top-2 margin-bottom-2 text-center wait-search hide">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/loading.gif" alt="">
+                                    </div>
+
                                     <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 videos-list">
                                         <?php
                                         $posts = get_posts( array(
@@ -120,7 +125,7 @@ $obj = get_queried_object();
                                         ?>
                                         <div class="cell video-feature-mini">
                                             <figure>
-                                                <div class="width-100 position-relative" data-magellan>
+                                                <div class="width-100 position-relative" data-magellan data-animation-duration="200">
                                                     <a href="#video-player" title="<?php the_title(); ?>" class="show-video" data-video-id="<?php echo $post->ID; ?>">
                                                         <span><i class="fas fa-play-circle"></i></span>
                                                         <img src="<?php echo get_video_thumb( $post->ID, 'lastnews-thumb' ); ?>" alt="<?php the_title(); ?>">
@@ -139,7 +144,7 @@ $obj = get_queried_object();
                                 <?php
                                 global $wp_query;
                                     if (  $wp_query->max_num_pages > 1 )
-                                        echo '<a href="#" class="load-videos button expanded hollow small text-uppercase alert" title="Carregar mais vídeos">Mais vídeos</a>';
+                                        echo '<a href="#" class="load-videos button expanded hollow small text-uppercase alert" title="Carregar mais vídeos"><i class="fas fa-plus"></i> Mais vídeos</a>';
                                 ?>
                             </div>
                         </div>

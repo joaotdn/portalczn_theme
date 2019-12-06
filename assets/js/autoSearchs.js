@@ -1,4 +1,0 @@
-// Search videos
-jQuery(function ($) {
-
-});
