@@ -46,7 +46,7 @@ $obj = get_queried_object();
 						'posts_per_page' => 1,
 						'category'       => $obj->term_id
 					) );
-					$embed = get_field('portalczn_post_video', $posts[0]->ID);
+					$embed = get_field( 'portalczn_post_video', $posts[0]->ID );
 					?>
                     <header class="video-player-header">
                     <span class="video-tag display-block">
@@ -64,7 +64,8 @@ $obj = get_queried_object();
                                 Continuar lendo <i class="fas fa-angle-right"></i>
                             </a>
 
-                            <span class="display-inline-block open-share float-right" title="Compartilhar" data-postid="<?php echo $posts[0]->ID; ?>">
+                            <span class="display-inline-block open-share float-right" title="Compartilhar"
+                                  data-postid="<?php echo $posts[0]->ID; ?>">
                                 <i class="fas fa-share-alt" data-toggle="share-dropdown"></i>
                             </span>
                         </p>
@@ -72,7 +73,7 @@ $obj = get_queried_object();
                 </div>
                 <div class="small-12 medium-7 cell">
                     <div id="video-iframe" class="responsive-embed">
-                        <?php echo $embed; ?>
+						<?php echo $embed; ?>
                     </div>
                 </div>
             </div>
@@ -95,7 +96,8 @@ $obj = get_queried_object();
 
                                 <header class="width-100 padding-1 margin-bottom-2">
                                     <form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                                        <input type="search" name="s" id="search-videos" class="width-100 search-video margin-0"
+                                        <input type="search" name="s" id="search-videos"
+                                               class="width-100 search-video margin-0"
                                                placeholder="Buscar vídeos...">
                                     </form>
                                 </header>
@@ -103,80 +105,61 @@ $obj = get_queried_object();
                                 <div class="grid-container align-center single-banner margin-bottom-2" role="banner">
                                     <div class="grid-x grid-padding-x">
                                         <div class="cell auto text-center">
-		                                    <?php
-		                                    portalczn_show_banner( 'portalczn_banners_topo' );
-		                                    ?>
+											<?php
+											portalczn_show_banner( 'portalczn_banners_topo' );
+											?>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="grid-container full">
                                     <div class="width-100 margin-top-2 margin-bottom-2 text-center wait-search hide">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/loading.gif" alt="">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/loading.gif"
+                                             alt="">
                                     </div>
 
                                     <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3 videos-list">
-                                        <?php
-                                        $posts = get_posts( array(
-	                                        'posts_per_page' => 9,
-	                                        'category'       => $obj->term_id
-                                        ) );
-                                        foreach ($posts as $post):
-                                        ?>
-                                        <div class="cell video-feature-mini">
-                                            <figure>
-                                                <div class="width-100 position-relative" data-magellan data-animation-duration="200">
-                                                    <a href="#video-player" title="<?php the_title(); ?>" class="show-video" data-video-id="<?php echo $post->ID; ?>">
-                                                        <span><i class="fas fa-play-circle"></i></span>
-                                                        <img src="<?php echo get_video_thumb( $post->ID, 'lastnews-thumb' ); ?>" alt="<?php the_title(); ?>">
-                                                        <p><?php echo wp_get_post_tags( $post->ID )[0]->name; ?></p>
-                                                    </a>
-                                                </div>
-                                                <figcaption>
-                                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-                                                </figcaption>
-                                            </figure>
-                                        </div>
-                                        <?php endforeach; ?>
+										<?php
+										$posts = get_posts( array(
+											'posts_per_page' => 9,
+											'category'       => $obj->term_id
+										) );
+										foreach ( $posts as $post ):
+											?>
+                                            <div class="cell video-feature-mini">
+                                                <figure>
+                                                    <div class="width-100 position-relative" data-magellan
+                                                         data-animation-duration="200">
+                                                        <a href="#video-player" title="<?php the_title(); ?>"
+                                                           class="show-video" data-video-id="<?php echo $post->ID; ?>">
+                                                            <span><i class="fas fa-play-circle"></i></span>
+                                                            <img src="<?php echo get_video_thumb( $post->ID, 'lastnews-thumb' ); ?>"
+                                                                 alt="<?php the_title(); ?>">
+                                                            <p><?php echo wp_get_post_tags( $post->ID )[0]->name; ?></p>
+                                                        </a>
+                                                    </div>
+                                                    <figcaption>
+                                                        <a href="<?php the_permalink(); ?>"
+                                                           title="<?php the_title(); ?>"><?php the_title(); ?></a>
+                                                    </figcaption>
+                                                </figure>
+                                            </div>
+										<?php endforeach; ?>
                                     </div>
                                 </div>
 
-                                <?php
-                                global $wp_query;
-                                    if (  $wp_query->max_num_pages > 1 )
-                                        echo '<a href="#" class="load-videos button expanded hollow small text-uppercase alert" title="Carregar mais vídeos"><i class="fas fa-plus"></i> Mais vídeos</a>';
-                                ?>
+								<?php
+								global $wp_query;
+								if ( $wp_query->max_num_pages > 1 ) {
+									echo '<a href="#" class="load-videos button expanded hollow small text-uppercase alert" title="Carregar mais vídeos"><i class="fas fa-plus"></i> Mais vídeos</a>';
+								}
+								?>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <aside class="small-12 medium-3 cell margin-top-2">
-                    <figure class="margin-bottom-2 text-center">
-                        <a href="#"><img src="assets/img/temp/vpub.jpg" alt=""></a>
-                    </figure>
-
-                    <div class="video-feature">
-                        <header class="video-aside-header">
-                            <span><i class="fas fa-plus"></i> visto do dia</span>
-                        </header>
-                        <figure class="position-relative width-100">
-                            <a href="#" title="" data-bg="assets/img/temp/album2.jpg"></a>
-                            <figcaption>
-                            <span class="v-feature-title">
-                                <a href="#" title="" class="media-object">
-                                    <span class="media-object-section">
-                                        <i class="fas fa-play"></i>
-                                    </span>
-                                    <span class="media-object-section">
-                                        Workout Routine for Big Forearms and a Crushing Grip
-                                    </span>
-                                </a>
-                            </span>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </aside>
+                <?php get_sidebar('videos'); ?>
             </div>
         </div>
     </div>
