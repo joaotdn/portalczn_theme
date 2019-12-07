@@ -56,7 +56,7 @@ get_template_part( 'parts/component', 'radio-player' );
 
 <?php
 get_template_part( 'parts/modal', 'videos' );
-
+get_template_part( 'parts/search', 'container' );
 get_template_part( 'parts/modal', 'schedule' );
 
 wp_footer();

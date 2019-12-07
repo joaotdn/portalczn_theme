@@ -108,6 +108,25 @@ jQuery(function ($) {
         });
     }
 
+    function searchAll() {
+        $('.open-search').click(function () {
+            $('#search-container').foundation('open');
+        });
+
+        $('#search-container').on('open.zf.reveal', function () {
+            setTimeout(function () {
+                $('#search-field').focus();
+            }, 500);
+
+            console.log('teste');
+        });
+
+        $('.close-button', '.open-search').click(function () {
+            $('#search-container').foundation('close');
+        });
+    }
+
+    searchAll();
     loadVideos();
     showVideo();
     searchVideos();
