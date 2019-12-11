@@ -2,7 +2,7 @@
 function site_scripts() {
 	global $wp_query;
 
-	define( PORTALCZN_VERSION, '1.0.36' );
+	define( PORTALCZN_VERSION, '1.0.40' );
 
 	$array_params = array(
 		'ajaxurl'      => site_url() . '/wp-admin/admin-ajax.php',

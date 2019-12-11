@@ -97,7 +97,7 @@ jQuery(function ($) {
                             $('.wait-search').addClass('hide');
                         },
                         success: function (data) {
-                            if(data) {
+                            if (data) {
                                 $('.videos-list').html(data);
                                 showVideo();
                             }
@@ -117,12 +117,35 @@ jQuery(function ($) {
             setTimeout(function () {
                 $('#search-field').focus();
             }, 500);
-
-            console.log('teste');
         });
 
         $('.close-button', '.open-search').click(function () {
             $('#search-container').foundation('close');
+        });
+
+        $(document).on('keyup', $('#search-field'), function (el) {
+            if ($(el.target).length >= 5) {
+                setTimeout(function () {
+                    $.ajax({
+                        data: {
+                            'action': 'search_all',
+                            'query': ajax_params.posts,
+                            'search': $(el.target).val()
+                        },
+                        beforeSend: function () {
+                            $('.wait-search').removeClass('hide');
+                            $('#list-results').html('');
+                        },
+                        complete: function () {
+                            $(document).foundation();
+                            $('.wait-search').addClass('hide');
+                        },
+                        success: function (data) {
+
+                        }
+                    });
+                }, 600);
+            }
         });
     }
 

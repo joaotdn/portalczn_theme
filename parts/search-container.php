@@ -11,7 +11,17 @@
                 </a>
             </div>
             <div class="cell small-12">
-                <input type="search" name="s" class="width-100 radius" id="search-field" placeholder="O que você procura?">
+                <label><small>Buscar</small>
+                    <input type="search" name="s" class="width-100 radius large" id="search-field"
+                           placeholder="O que você procura?">
+                </label>
+            </div>
+        </div>
+
+        <div class="grid-padding-x grid-x margin-top-2 margin-bottom-2" id="list-results">
+            <div class="width-100 margin-top-2 margin-bottom-2 text-center wait-search hide">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/loading.gif"
+                     alt="">
             </div>
         </div>
     </div>
