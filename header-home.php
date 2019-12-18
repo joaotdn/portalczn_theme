@@ -24,7 +24,7 @@ get_template_part( 'parts/nav', 'topbar' );
     <div class="grid-container">
         <div class="grid-x grid-padding-x align-middle">
             <div class="cell auto margin-0 site-brand margin-bottom-small-1" role="figure">
-                <a href="<?php home_url(); ?>" title="Página principal" class="display-inline-block">
+                <a href="<?php echo home_url(); ?>" title="Página principal" class="display-inline-block">
                     <img src="<?php the_field( 'portalczn_logo', 'option' ); ?>"
                          alt="<?php _e( 'Logo da CZN', 'portalczn' ); ?>"
                          class="no-lazy" data-src>

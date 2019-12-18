@@ -15,12 +15,7 @@
             </div>
 
             <div class="cell auto show-for-large">
-                <form action="" id="form-search-scroll">
-                    <div class="input-group margin-0 font-header">
-                        <label for="search-input" class="input-group-label padding-left-0"><i class="fas fa-search"></i></label>
-                        <input type="search" id="search-input" class="input-group-field" placeholder="Pesquisar...">
-                    </div>
-                </form>
+	            <?php get_template_part('parts/form', 'search'); ?>
             </div>
 
         </div>

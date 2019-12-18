@@ -4,4 +4,3 @@ wp_nav_menu( array(
 	'items_wrap' => '%3$s',
 	'container'  => '',
 ) );
-?>

@@ -28,7 +28,7 @@ $videos       = get_cat_ID( 'Videos' );
                 <span>
                     <?php
                     if ( $contact_page ) {
-	                    echo '<a href="' . esc_html( get_page_link( $contact_page->ID ) ) . '" target="_blank" class="white margin-right-1" title="Fale conosco"><i class="far fa-envelope"></i> Fale conosco</a>';
+	                    echo '<a href="' . esc_html( get_page_link( $contact_page->ID ) ) . '" class="white margin-right-1" title="Fale conosco"><i class="far fa-envelope"></i> Fale conosco</a>';
                     }
                     ?>
                 </span>

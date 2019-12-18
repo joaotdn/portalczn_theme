@@ -48,7 +48,10 @@ require_once( get_template_directory() . '/functions/more-videos.php' );
 // Show video on player after click
 require_once( get_template_directory() . '/functions/show-video.php' );
 
-// Custom for Videos
+// Popular views posts
+require_once( get_template_directory() . '/functions/popular-views.php' );
+
+// Custom page for Videos
 add_filter( 'single_template', function ( $single_template ) {
 	if ( has_category( 'videos' ) ) {
 		$single_template = dirname( __FILE__ ) . '/single-videos.php';

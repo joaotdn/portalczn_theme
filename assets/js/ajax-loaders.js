@@ -2,6 +2,7 @@ jQuery(function ($) {
     $.ajaxSetup({
         url: ajax_params.ajaxurl,
         method: 'POST',
+        dataType: 'html'
     });
 
     function loadVideos() {
@@ -108,7 +109,7 @@ jQuery(function ($) {
         });
     }
 
-    function searchAll() {
+    function searchOperations() {
         $('.open-search').click(function () {
             $('#search-container').foundation('open');
         });
@@ -122,35 +123,48 @@ jQuery(function ($) {
         $('.close-button', '.open-search').click(function () {
             $('#search-container').foundation('close');
         });
+    }
 
-        $(document).on('keyup', $('#search-field'), function (el) {
-            if ($(el.target).length >= 5) {
-                setTimeout(function () {
-                    $.ajax({
-                        data: {
-                            'action': 'search_all',
-                            'query': ajax_params.posts,
-                            'search': $(el.target).val()
-                        },
-                        beforeSend: function () {
-                            $('.wait-search').removeClass('hide');
-                            $('#list-results').html('');
-                        },
-                        complete: function () {
-                            $(document).foundation();
-                            $('.wait-search').addClass('hide');
-                        },
-                        success: function (data) {
+    function searchAll() {
 
+        $('#search-form-reveal').submit(function (e) {
+            e.preventDefault();
+            const keyword = $('#search-field').val().toLowerCase();
+            if (keyword.length) {
+                $.ajax({
+                    data: {
+                        'action': 'search_all',
+                        'query': ajax_params.posts,
+                        'search': $('#search-field').val().toLowerCase(),
+                        'category': $('#select-category').val()
+                    },
+                    beforeSend: function () {
+                        $('.search-btn').addClass('disabled').text('Procurando');
+                        $('#list-results').html('');
+                    },
+                    complete: function () {
+                        $(document).foundation();
+                        $('.search-btn').removeClass('disabled').text('Buscar');
+                    },
+                    success: function (data) {
+                        if (data) {
+                            $('#list-results').append(data);
+                            // console.log(data);
+                            loadVideos();
+                            showVideo();
+                            searchVideos();
+                        } else {
+                            alert('Não foi possível encontrar resultados para essa busca');
                         }
-                    });
-                }, 600);
+                    }
+                })
             }
         });
     }
 
-    searchAll();
+    searchOperations();
     loadVideos();
     showVideo();
     searchVideos();
+    searchAll();
 });

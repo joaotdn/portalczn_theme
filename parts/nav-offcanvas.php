@@ -1,4 +1,8 @@
-
+<?php
+$fone         = get_field( 'portalczn_fone', 'option' );
+$facebook     = get_field( 'portalczn_facebook', 'option' );
+$contact_page = get_page_by_title( 'Fale conosco' );
+?>
 <div id="menu-offcanvas" class="container position-fixed height-100">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
@@ -12,7 +16,7 @@
 				<div class="input-group">
 					<label for="search-input-offcanvas" class="input-group-label padding-left-0"><i
 							class="fas fa-search"></i></label>
-					<input type="search" id="search-input-offcanvas" class="input-group-field"
+					<input type="search" id="search-input-offcanvas" class="input-group-field open-search"
 					       placeholder="Pesquisar...">
 				</div>
 			</div>
@@ -22,13 +26,11 @@
 					<span>Seções</span>
 				</header>
 				<ul class="menu vertical">
-					<li><a href="#" title="" class="active">Principal</a></li>
-					<li><a href="#" title="">Política</a></li>
-					<li><a href="#" title="">Policial</a></li>
-					<li><a href="#" title="">Esportes</a></li>
-					<li><a href="#" title="">Brasil</a></li>
-					<li><a href="#" title="">Mundo</a></li>
-					<li><a href="#" title="" class="tv-link"><i class="fas fa-play"></i> TV</a></li>
+					<?php
+                        get_template_part('parts/menu', 'items');
+                        $videos = get_cat_ID('Videos');
+                    ?>
+					<li><a href="<?php echo esc_html( get_category_link( $videos ) ); ?>" title="Vídeos" class="tv-link"><i class="fas fa-play"></i> Vídeos</a></li>
 				</ul>
 			</div>
 
@@ -37,12 +39,19 @@
 					<span>Conheça-nos</span>
 				</header>
 				<ul class="menu vertical">
-					<li><a href="tel:988888888" target="_blank" class="white"><i class="fas fa-phone-alt"></i> (83)
-							98888.9847</a></li>
-					<li><a href="#" target="_blank" class="white margin-right-1"><i class="far fa-envelope"></i> Fale
-							conosco</a></li>
-					<li><a href="#" target="_blank" title="Ir para a fanpage" class="white"><i
-								class="fab fa-facebook"></i> Siga-nos</a></li>
+					<?php
+					if ( $fone ) {
+						echo '<li><a href="tel:' . $fone . '" target="_blank" class="white" title="Ligue para o Portal CZN"><i class="fas fa-phone-alt"></i> ' . $fone . '</a></li>';
+					}
+
+					if ( $contact_page ) {
+						echo '<li><a href="' . esc_html( get_page_link( $contact_page->ID ) ) . '" target="_blank" class="white margin-right-1" title="Fale conosco"><i class="far fa-envelope"></i> Fale conosco</a></li>';
+					}
+
+					if ( $facebook ) {
+						echo '<li><a href="' . esc_html( $facebook ) . '" target="_blank" title="Ir para a fanpage" class="white"><i class="fab fa-facebook"></i> Siga-nos</a></li>';
+					}
+					?>
 				</ul>
 			</div>
 		</div>
